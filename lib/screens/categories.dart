@@ -20,7 +20,8 @@ class CategoriesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Categorias'),
+        title: Text('Catálogo de bandas'),
+        centerTitle: true,
       ),
       body: BlocBuilder<CategoriesCubit, List<BandCategory>>(
         builder: (context, state) {
