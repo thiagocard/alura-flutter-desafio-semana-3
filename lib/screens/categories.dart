@@ -3,21 +3,31 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_app/models/band_category.dart';
 import 'package:flutter_app/models/band_category_model.dart';
 import 'package:flutter_app/screens/routes.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Categories extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => CategoriesCubit(),
+      child: CategoriesView(),
+    );
+  }
+}
+
+class CategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Categorias'),
       ),
-      body: Consumer<CategoriesModel>(
-        builder: (context, model, child) {
+      body: BlocBuilder<CategoriesCubit, List<BandCategory>>(
+        builder: (context, state) {
           return GridView.count(
             crossAxisCount: 2,
-            children: List.generate(model.categories.length,
-                (index) => CategoryCard(model.categories[index])),
+            children: List.generate(
+                state.length, (index) => CategoryCard(state[index])),
           );
         },
       ),
@@ -58,9 +68,9 @@ class CategoryCard extends StatelessWidget {
                 child: Text(
                   _category.name,
                   style: TextStyle(
-                    color: Colors.blueAccent,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.yellow,
                   ),
                 ),
               ),

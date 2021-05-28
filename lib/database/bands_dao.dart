@@ -2,7 +2,6 @@ import 'package:flutter_app/database/app_db.dart';
 import 'package:flutter_app/models/band.dart';
 
 class BandsDao {
-
   static final String tableName = 'bands';
   static final String id = '_id';
   static final String categoryId = 'category_id';
@@ -11,9 +10,11 @@ class BandsDao {
 
   BandsDao._();
 
-  static Future<List<Band>> findAll() async {
+  static Future<List<Band>> findByCategoryId(int category) async {
     var db = await AppDB.database;
-    return (await db.query(tableName)).map((row) {
+    return (await db
+            .query(tableName, where: '$categoryId = ?', whereArgs: [category]))
+        .map((row) {
       return Band(row[id], row[categoryId], row[name], row[image]);
     }).toList();
   }
