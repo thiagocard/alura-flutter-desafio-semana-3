@@ -10,7 +10,7 @@ class BandsModel extends ChangeNotifier {
   BandsModel() {
     add(Band(Uuid().v4(), 1, 'Alice in Chains', 'https://rollingstone.uol.com.br/media/_versions/alice_in_chains_pequena_widelg.jpg'));
     add(Band(Uuid().v4(), 1, 'Pearl Jam', 'https://catracalivre.com.br/wp-content/uploads/2020/09/pearl-jam-1.jpg'));
-    add(Band(Uuid().v4(), 1, 'Tame Imapla', 'https://jpimg.com.br/uploads/2019/01/kp-large.jpg'));
+    add(Band(Uuid().v4(), 4, 'Tame Imapla', 'https://jpimg.com.br/uploads/2019/01/kp-large.jpg'));
   }
 
   UnmodifiableListView<Band> bandsByCategory(int categoryId) {

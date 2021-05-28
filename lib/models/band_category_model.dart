@@ -14,6 +14,7 @@ class CategoriesModel extends ChangeNotifier {
     add(BandCategory(1, 'Rock', 'https://i.ytimg.com/vi/RlNhD0oS5pk/maxresdefault.jpg'));
     add(BandCategory(2, 'Rap', 'https://i.scdn.co/image/6f0da41419b31d9d2ba55d2df212f59ad0668118'));
     add(BandCategory(3, 'Eletrônica', 'https://i.ytimg.com/vi/DBW-Rq4iEhQ/maxresdefault.jpg'));
+    add(BandCategory(4, 'Indie/alternativa', 'https://jpimg.com.br/uploads/2019/01/kp-large.jpg'));
   }
 
   void add(BandCategory category) {

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/bands_model.dart';
 import 'package:flutter_app/models/band_category_model.dart';
-import 'package:flutter_app/screens/home.dart';
+import 'package:flutter_app/screens/categories.dart';
 import 'package:flutter_app/screens/routes.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +25,7 @@ class BandCatalogApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: Routes.routes,
-      home: Home(),
+      home: Categories(),
     );
   }
 }
